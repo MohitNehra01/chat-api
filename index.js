@@ -3,13 +3,7 @@ const cloudinary = require('cloudinary');
 const express = require('express');
 const app  = express();
 const cors  = require('cors');
-const corsConfig = {
-    origin : "*",
-    credential:true,
-    methods:["GET","POST","PUT","DELETE"]
-};
-app.use(cors(corsConfig))
-app.options("",cors(corsConfig));
+app.use(cors())
 const morgan = require('morgan');
 const dbConnect = require('./db');
 const cookieParser = require('cookie-parser')
