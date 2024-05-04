@@ -92,7 +92,7 @@ const register = async(req,res,next)=>{
         user.password = undefined;
 
 
-        return res.status(200).json({ success: true,msg:'Successfuly created new account', user: user  , token})
+        return res.status(200).json({ success: true,msg:'Successfuly created new account', user: user  , auth_token:token})
 
 
 
@@ -122,10 +122,10 @@ const login = async (req,res,next)=>{
         if(! await user.passwordCompare(password)){
             return next(new AppError('invalid credentials' , 401))
         }
-
+        user.password = undefined;
         let token = await user.jwtToken();
         
-        res.status(200).cookie('auth_token',token , cookieOption).json({success:true , msg:'User loggedin successfuly'})
+        res.status(200).cookie('auth_token',token , cookieOption).json({success:true , msg:'User loggedin successfuly' , user,auth_token:token})
 
 
      } catch (error) {
