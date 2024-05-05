@@ -133,4 +133,15 @@ const login = async (req,res,next)=>{
      }
 }
 
-module.exports = {register, login}
+const getAllUser = async (req,res,next)=>{
+    try {
+        let users = await User.find();
+
+        return res.status(200).json({success:true , users})
+        
+    } catch (error) {
+        return next(new AppError('Failed to fetch  Users') , 500)
+    }
+}
+
+module.exports = {register, login , getAllUser}
