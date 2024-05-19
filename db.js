@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-// const DB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/chatApplication"
-const DB_URI = "mongodb://localhost:27017/chatApplication"
+const DB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/chatApplication"
+// const DB_URI = "mongodb://localhost:27017/chatApplication"
 
 const dbConnect = async ()=>{
     try {
