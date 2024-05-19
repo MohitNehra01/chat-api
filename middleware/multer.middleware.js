@@ -20,14 +20,14 @@ const upload = multer({
     fileFilter: (req , file , cb)=>{
         let ext = path.extname(file.originalname);
 
-        if(
-            ext !== ".jpg" &&
-            ext !== ".jpeg" &&
-            ext !== ".png" 
-        ){
-           return cb(new Error(`Unsupported file type! ${ext}`) , false);
+        // if(
+        //     ext !== ".jpg" &&
+        //     ext !== ".jpeg" &&
+        //     ext !== ".png" 
+        // ){
+        //    return cb(new Error(`Unsupported file type! ${ext}`) , false);
             
-        }
+        // }
 
         cb(null , true);
     }
